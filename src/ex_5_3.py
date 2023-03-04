@@ -31,12 +31,12 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    raw_data = np.loadtxt(args.infile)
+    textfl = np.loadtxt(args.infile)
 
-    raw_data -= raw_data.mean()
+    textfl -= textfl.mean()
 
-    dt = raw_data.std()
+    dt = textfl.std()
 
-    processed = raw_data/dt
+    processed = textfl/dt
 
     np.savetxt(args.outfile, processed, fmt='%.2e')
